@@ -1,0 +1,5 @@
+.main-title {
+  font-weight: 900;
+  @include text(26px, 42px, 0.06em);
+  text-transform: uppercase;
+}

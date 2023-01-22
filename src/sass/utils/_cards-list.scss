@@ -1,0 +1,18 @@
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cards-list__item {
+  width: 100%;
+}
+
+.cards-list--small-cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .cards-list__item {
+    width: calc((100% - 30px) / 2);
+  }
+}

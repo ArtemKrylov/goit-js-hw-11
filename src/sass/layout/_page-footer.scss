@@ -1,0 +1,139 @@
+.footer {
+  padding: 60px 0;
+
+  background-color: var(--accent-background-color);
+}
+
+.footer__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  text-align: center;
+}
+
+.footer__logo-and-address {
+  flex-grow: 1;
+}
+
+.footer__logo {
+  display: block;
+  margin-bottom: 20px;
+
+  &:not(.cite-logo__accent) {
+    color: var(--footer-text-color);
+  }
+}
+
+.footer__address {
+  font-style: normal;
+}
+
+.footer__address-listitem:not(:last-child) {
+  margin-bottom: 9px;
+}
+
+.footer__location {
+  color: var(--footer-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--accent-color);
+  }
+}
+
+.footer__email,
+.footer__phonenumber {
+  color: var(--footer-mail-and-phone-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--accent-color);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.footer__social-title {
+  margin-bottom: 20px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.footer__form {
+  width: 100%;
+}
+
+.footer__label {
+  display: block;
+
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.footer__input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 0 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  outline: none;
+
+  background-color: inherit;
+
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 1);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:focus,
+  &:active {
+    border-color: var(--accent-color);
+  }
+}
+
+.footer__submit-button {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.footer__submit-button-text {
+  margin-right: 10px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+}

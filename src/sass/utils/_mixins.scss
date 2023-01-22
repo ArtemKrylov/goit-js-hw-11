@@ -1,0 +1,22 @@
+@mixin text($fs, $lh, $ls) {
+  font-size: $fs;
+  line-height: calc($lh / $fs);
+  letter-spacing: $ls;
+}
+
+@mixin font-styling($ff, $fw) {
+  font-family: $ff;
+  font-weight: $fw;
+}
+
+@mixin text-inherit {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+@mixin centralize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
