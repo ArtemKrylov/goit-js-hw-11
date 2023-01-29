@@ -1,13 +1,13 @@
-.button--submit {
+%button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 5px 10px;
 
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: 1px solid rgb(1, 59, 1);
 
   font-family: 'Roboto';
   font-style: normal;
@@ -17,12 +17,26 @@
   text-align: center;
   letter-spacing: 0.06em;
 
-  color: #fff;
+  color: rgb(1, 59, 1);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #188ce8;
+    background-color: rgb(1, 59, 1);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
   }
+}
+
+.button--submit {
+  @extend %button;
+}
+
+.button--load-more {
+  @extend %button;
+  display: flex;
+  margin: 0 auto;
 }

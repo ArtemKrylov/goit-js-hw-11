@@ -9,8 +9,18 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  margin: 0;
 }
 
 main {
   flex-grow: 1;
+}
+
+.blur-up {
+  filter: blur(5px);
+  transition: filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  filter: blur(0);
 }
