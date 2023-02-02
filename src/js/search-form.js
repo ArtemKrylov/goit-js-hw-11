@@ -3,7 +3,6 @@
 import { Notify } from 'notiflix';
 import SimpleLightBox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import OnlyScroll from 'only-scrollbar';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
@@ -20,7 +19,7 @@ const refs = {
 };
 let searchInput = null;
 const simpleLightBoxOptions = {};
-const PER_PAGE = 15;
+const PER_PAGE = 40;
 let page = 1;
 let totalFound = 0;
 let imgLeft = 0;
@@ -34,7 +33,6 @@ refs.loadMoreBtnEl.addEventListener('click', onLoadMoreBtnElClick);
 refs.searchFormEl.elements.searchQuery.value =
   localStorage.getItem('search-query');
 
-console.dir(screen);
 //*****************functions**************
 async function onSearchFormElSubmit(event) {
   event.preventDefault();
@@ -81,20 +79,23 @@ function onSearchQueryElChange() {
 }
 
 async function getImageArr(searchInput, page, per_page) {
-  const pixabayAPI = new PixabayAPI(searchInput, page, per_page);
-  const imageArr = await pixabayAPI
-    .fetchPixabay(searchInput)
-    .then(data => {
-      if (!data) return;
-      const { hits, totalHits } = data;
-      console.log('data', data);
-      totalFound = imgLeft = totalHits;
-      console.log('totalFound', totalFound);
-      return hits.map(convertData);
-    })
-    .catch(console.error);
-
-  return imageArr;
+  try {
+    const pixabayAPI = new PixabayAPI(searchInput, page, per_page);
+    const data = await pixabayAPI.fetchPixabay(searchInput);
+    const { hits, totalHits } = data;
+    if (totalHits === 0) {
+      Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+      return;
+    }
+    totalFound = imgLeft = totalHits;
+    // console.log('data', data);
+    // console.log('hits', hits);
+    return hits.map(convertData);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function fillGallery(imageArr) {

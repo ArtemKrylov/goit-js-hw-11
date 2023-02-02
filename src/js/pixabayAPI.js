@@ -24,24 +24,10 @@ export default class PixabayAPI {
   }
 
   async fetchPixabay() {
-    try {
-      const response = await axios.get(
-        `${PixabayAPI.BASE_URL}?${this.searchParams}`
-      );
-      console.log('response', response);
-
-      if (response.data.totalHits === 0) {
-        Notify.failure(
-          'Sorry, there are no images matching your search query. Please try again.'
-        );
-        throw new Error(response.status);
-      } else {
-        return await response.data;
-      }
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
+    const response = await axios.get(
+      `${PixabayAPI.BASE_URL}?${this.searchParams}`
+    );
+    return response.data;
   }
 
   set imagesPerPage(number) {
